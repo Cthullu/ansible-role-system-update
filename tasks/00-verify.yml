@@ -1,4 +1,15 @@
 ---
+# var_system_update_gather_timeout
+- name: Verify provided gather timeout value
+  ansible.builtin.assert:
+    that:
+      - var_system_update_gather_timeout is defined
+      - var_system_update_gather_timeout is number
+      - var_system_update_gather_timeout is integer
+      - var_system_update_gather_timeout >= 0
+    quiet: true
+    fail_msg: Exiting, var_system_update_gather_timeout must be integer >= 0
+
 # var_system_update_packages
 - name: Verify provided apply package update value
   ansible.builtin.assert:

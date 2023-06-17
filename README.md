@@ -19,6 +19,7 @@ influence the role behaviour.
 
 | Variable                            | Type  | Default | Comment                                                                                                                         |
 |-------------------------------------|-------|---------|---------------------------------------------------------------------------------------------------------------------------------|
+| var_system_update_gather_timeout    | int   | 10      | Specify the timeout for the gather fact command.                                                                                |
 | var_system_update_packages          | bool  | true    | Specify whether system packages should be updated.                                                                              |
 | var_system_update_security          | bool  | true    | Specify whether additional security updates should be applied.                                                                  |
 | var_system_update_bugfix            | bool  | true    | Specify whether additional bugfix updates should be applied.                                                                    |

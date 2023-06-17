@@ -3,6 +3,23 @@
   ansible.builtin.include_tasks:
     file: 00-verify.yml
 
+- name: Gather system information regarding target platform
+  ansible.builtin.setup:
+    gather_subset:
+      - '!all'
+      - '!min'
+      - distribution
+      - distribution_major_version
+    gather_timeout: "{{ var_system_update_gather_timeout }}"
+
+- name: End host if not one of supported platforms
+  when: >
+    (ansible_facts['distribution'] not 'RedHat' and
+    ansible_facts['distribution_major_version'] not in [8, 9]) or
+    (ansible_facts['distribution'] not 'Fedora' and
+    ansible_facts['distribution_major_version'] not in [36, 37, 38])
+  ansible.builtin.meta: end_host
+
 - name: Include tasks to perform updates
   ansible.builtin.include_tasks:
     file: 10-updates.yml

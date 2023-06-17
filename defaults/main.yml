@@ -1,4 +1,5 @@
 ---
+var_system_update_gather_timeout: 10
 var_system_update_packages: true
 var_system_update_security: true
 var_system_update_bugfix: true
