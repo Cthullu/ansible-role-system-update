@@ -1,0 +1,21 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: Daniel Kuss
+  description: Apply various updates to target system
+  license: MIT
+
+  min_ansible_version: "2.1"
+  issue_tracker_url: https://github.com/Cthullu/ansible-role-system-update/issues
+
+  platforms:
+    - name: EL
+      versions:
+        - "8"
+        - "9"
+    - name: Fedora
+      versions:
+        - "36"
+        - "37"
+        - "38"
