@@ -1,0 +1,30 @@
+---
+- name: Apply system package updates
+  become: true
+  when:
+     - var_system_update_packages
+  ansible.builtin.dnf:
+    name: '*'
+    state: latest
+    update_cache: "{{ var_system_update_update_cache }}"
+  register: reg_system_update_packages
+
+- name: Apply security updates
+  become: true
+  when:
+     - var_system_update_security
+  ansible.builtin.dnf:
+    state: latest
+    security: true
+    update_cache: "{{ var_system_update_update_cache }}"
+  register: reg_system_update_security
+
+- name: Apply bugfix updates
+  become: true
+  when:
+     - var_system_update_bugfix
+  ansible.builtin.dnf:
+    state: latest
+    bugfix : true
+    update_cache: "{{ var_system_update_update_cache }}"
+  register: reg_system_update_bugfix
