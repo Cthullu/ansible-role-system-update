@@ -1,0 +1,8 @@
+---
+var_system_update_packages: true
+var_system_update_security: true
+var_system_update_bugfix: true
+var_system_update_update_cache: true
+var_system_update_prevent_reboot: false
+var_system_update_pre_reboot_delay: 0
+var_system_update_reboot_delay: 600
