@@ -16,6 +16,30 @@ The target system must be able to access update sources.
 
 ## Role Variables
 
+The following variables are used by the role and set inside the
+`defaults/main.yml`:
+
+~~~yaml
+var_system_update_gather_timeout: 10
+var_system_update_packages: true
+var_system_update_security: true
+var_system_update_bugfix: true
+var_system_update_update_cache: true
+var_system_update_prevent_reboot: false
+var_system_update_pre_reboot_delay: 5
+var_system_update_reboot_delay: 600
+~~~
+
+| Variable                            | Type    | Default | Comment                                                                                                               |
+|-------------------------------------|---------|---------|-----------------------------------------------------------------------------------------------------------------------|
+| var_system_update_bugfix            | boolean | true    | Specify if bugfix updates should be applied.                                                                          |
+| var_system_update_gather_timeout    | int     | 10      | Specify the timeout value for gathering system facts.                                                                 |
+| var_system_update_packages          | boolean | true    | Specify if updates for all packages should be applied.                                                                |
+| var_system_update_pre_reboot_delay  | int     | 5       | Specify the timeout (in seconds) to wait between announcing the reboot and performing it.                             |
+| var_system_update_prevent_reboot    | boolean | false   | Specify if the reboot after applying updates should be prevented.                                                     |
+| var_system_update_reboot_delay      | int     | 600     | Specify the time (in seconds) to wait after issuing the reboot command before considering the target as unreachable.  |
+| var_system_update_security          | boolean | true    | Specify if security updates should be applied.                                                                        |
+| var_system_update_update_cache      | boolean | true    | Specify if a package cache update should be forced prior to searching for updates.                                    |
 
 ## Example Playbooks
 
