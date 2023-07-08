@@ -2,8 +2,10 @@
 name: Ansible lint
 
 on:
+  push:
   pull_request:
-    branches: ['main', 'init']
+    branches:
+      - main
 
 jobs:
   build:
