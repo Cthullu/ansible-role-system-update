@@ -7,7 +7,7 @@
     name: '*'
     state: latest
     update_cache: "{{ var_system_update_update_cache }}"
-  register: reg_system_update_packages
+  notify: handler_reboot
 
 - name: Apply security updates
   become: true
@@ -17,7 +17,7 @@
     state: latest
     security: true
     update_cache: "{{ var_system_update_update_cache }}"
-  register: reg_system_update_security
+  notify: handler_reboot
 
 - name: Apply bugfix updates
   become: true
@@ -27,4 +27,4 @@
     state: latest
     bugfix: true
     update_cache: "{{ var_system_update_update_cache }}"
-  register: reg_system_update_bugfix
+  notify: handler_reboot
