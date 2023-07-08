@@ -1,5 +1,7 @@
 # system-update
 
+![Ansible Lint](https://github.com/cthullu/ansible-role-system-update/actions/workflows/ansible-lint.yml/badge.svg)
+
 This role can be used to update packages at systems using the dnf package
 manager.
 
