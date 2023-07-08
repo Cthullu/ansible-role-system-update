@@ -12,15 +12,17 @@
       - distribution_major_version
     gather_timeout: "{{ var_system_update_gather_timeout }}"
 
-- name: End host if not one of supported platforms
-  when: >
-    (ansible_facts['distribution'] not 'RedHat' and
-    ansible_facts['distribution_major_version'] not in [8, 9]) or
-    (ansible_facts['distribution'] not 'Fedora' and
-    ansible_facts['distribution_major_version'] not in [36, 37, 38])
-  ansible.builtin.meta: end_host
+- name: Import tasks to perform updates on RHEL systems
+  when:
+    - ansible_facts['distribution'] == 'RedHat'
+    - ansible_facts['distribution_major_version'] in [8, 9])
+  ansible.builtin.import_tasks:
+    file: 10-updates.yml
 
-- name: Import tasks to perform updates
+- name: Import tasks to perform updates on Fedora systems
+  when:
+    - ansible_facts['distribution'] == 'Fedora'
+    - ansible_facts['distribution_major_version'] in [36, 37, 38])
   ansible.builtin.import_tasks:
     file: 10-updates.yml
 
