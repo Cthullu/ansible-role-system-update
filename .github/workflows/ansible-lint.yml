@@ -3,7 +3,7 @@ name: Ansible lint
 
 on:
   pull_request:
-    branches: ['main']
+    branches: ['main', 'init']
 
 jobs:
   build:
