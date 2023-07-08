@@ -1,6 +1,6 @@
 ---
-- name: Include tasks to verfy provided configuration
-  ansible.builtin.include_tasks:
+- name: Import tasks to verify configuration
+  ansible.builtin.import_tasks:
     file: 00-verify.yml
 
 - name: Gather system information regarding target platform
@@ -20,8 +20,8 @@
     ansible_facts['distribution_major_version'] not in [36, 37, 38])
   ansible.builtin.meta: end_host
 
-- name: Include tasks to perform updates
-  ansible.builtin.include_tasks:
+- name: Import tasks to perform updates
+  ansible.builtin.import_tasks:
     file: 10-updates.yml
 
 - name: Reboot if system packages were updated
