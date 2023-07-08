@@ -1,16 +1,10 @@
-# ansible-role-system-update
+# ansible-role-
 
-This role can be used to update packages at systems using the dnf package
-manager.
 
-The role allows to specify if general updates, bugfixes or security updated
-should be applied.
-To avoid issues with e.g. updated kernel packages, the role performs a reboot
-after any package was updated, execpt it is explicitely told to not do so.
 
 ## Requirements
 
-The target system must be able to access update sources.
+
 
 ## Role Variables
 
