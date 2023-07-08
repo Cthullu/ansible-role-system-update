@@ -1,6 +1,6 @@
 ---
 # var_system_update_gather_timeout
-- name: Verify provided gather timeout value
+- name: Verify gather timeout value
   ansible.builtin.assert:
     that:
       - var_system_update_gather_timeout is defined
@@ -11,7 +11,7 @@
     fail_msg: Exiting, var_system_update_gather_timeout must be integer >= 0
 
 # var_system_update_packages
-- name: Verify provided apply package update value
+- name: Verify apply package update value
   ansible.builtin.assert:
     that:
       - var_system_update_packages is defined
@@ -21,7 +21,7 @@
     fail_msg: Exiting, var_system_update_packages must be boolean
 
 # var_system_update_security
-- name: Verify provided apply security update value
+- name: Verify apply security update value
   ansible.builtin.assert:
     that:
       - var_system_update_security is defined
@@ -31,7 +31,7 @@
     fail_msg: Exiting, var_system_update_security must be boolean
 
 # var_system_update_bugfix:
-- name: Verify provided apply bugfix update value
+- name: Verify apply bugfix update value
   ansible.builtin.assert:
     that:
       - var_system_update_bugfix is defined
@@ -41,7 +41,7 @@
     fail_msg: Exiting, var_system_update_bugfix must be boolean
 
 # var_system_update_update_cache
-- name: Verify provided update cache value
+- name: Verify update cache value
   ansible.builtin.assert:
     that:
       - var_system_update_update_cache is defined
@@ -51,7 +51,7 @@
     fail_msg: Exiting, var_system_update_update_cache must be boolean
 
 # var_system_update_prevent_reboot:
-- name: Verify provided prevent reboot value
+- name: Verify prevent reboot value
   ansible.builtin.assert:
     that:
       - var_system_update_prevent_reboot is defined
@@ -61,7 +61,7 @@
     fail_msg: Exiting, var_system_update_prevent_reboot must be boolean
 
 # var_system_update_pre_reboot_delay
-- name: Verify provided pre reboot delay value
+- name: Verify pre reboot delay value
   ansible.builtin.assert:
     that:
       - var_system_update_pre_reboot_delay is defined
@@ -72,7 +72,7 @@
     fail_msg: Exiting, var_system_update_pre_reboot_delay must be integer >= 0
 
 # var_system_update_reboot_delay
-- name: Verify provided reboot delay value
+- name: Verify reboot delay value
   ansible.builtin.assert:
     that:
       - var_system_update_reboot_delay is defined
