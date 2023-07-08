@@ -24,13 +24,5 @@
   ansible.builtin.import_tasks:
     file: 10-updates.yml
 
-- name: Reboot if system packages were updated
-  become: true
-  when:
-    - not var_system_update_prevent_reboot
-    - reg_system_update_packages['changed'] | default(false) or
-      reg_system_update_security['changed'] | default(false) or
-      reg_system_update_bugfix['changed'] | default(false)
-  ansible.builtin.reboot:
-    pre_reboot_delay: "{{ var_system_update_pre_reboot_delay }}"
-    reboot_timeout: "{{ var_system_update_reboot_delay }}"
+- name: Ensure pending handlers are flushed
+  ansible.builtin.meta: flush_handlers
