@@ -1,13 +1,12 @@
 ---
-dependencies: []
-
 galaxy_info:
+  role_name: system_update
   author: Daniel Kuss
   description: Apply various updates to target system
+
   license: MIT
 
-  min_ansible_version: "2.1"
-  issue_tracker_url: https://github.com/Cthullu/ansible-role-system-update/issues
+  min_ansible_version: 2.10
 
   platforms:
     - name: EL
@@ -19,3 +18,8 @@ galaxy_info:
         - "36"
         - "37"
         - "38"
+
+
+  galaxy_tags: []
+
+dependencies: []
