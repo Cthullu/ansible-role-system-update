@@ -2,6 +2,7 @@
 galaxy_info:
   role_name: system_update
   author: Daniel Kuss
+  namespace: cthullu
   description: Apply various updates to target system
 
   license: MIT
