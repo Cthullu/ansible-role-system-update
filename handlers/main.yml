@@ -1,0 +1,9 @@
+---
+- name: Reboot system
+  become: true
+  when:
+    - not var_system_update_prevent_reboot
+  ansible.builtin.reboot:
+    pre_reboot_delay: "{{ var_system_update_pre_reboot_delay }}"
+    reboot_timeout: "{{ var_system_update_reboot_delay }}"
+  listen: handler_reboot

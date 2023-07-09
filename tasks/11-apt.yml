@@ -1,0 +1,10 @@
+---
+- name: Apply system package updates
+  become: true
+  when:
+    - var_system_update_packages
+  ansible.builtin.apt:
+    name: '*'
+    state: latest
+    update_cache: "{{ var_system_update_update_cache }}"
+  notify: handler_reboot

@@ -1,0 +1,83 @@
+---
+# var_system_update_gather_timeout
+- name: Verify gather timeout value
+  ansible.builtin.assert:
+    that:
+      - var_system_update_gather_timeout is defined
+      - var_system_update_gather_timeout is number
+      - var_system_update_gather_timeout is integer
+      - var_system_update_gather_timeout >= 0
+    quiet: true
+    fail_msg: Exiting, var_system_update_gather_timeout must be integer >= 0
+
+# var_system_update_packages
+- name: Verify apply package update value
+  ansible.builtin.assert:
+    that:
+      - var_system_update_packages is defined
+      - var_system_update_packages is boolean
+      - var_system_update_packages is number
+    quiet: true
+    fail_msg: Exiting, var_system_update_packages must be boolean
+
+# var_system_update_security
+- name: Verify apply security update value
+  ansible.builtin.assert:
+    that:
+      - var_system_update_security is defined
+      - var_system_update_security is boolean
+      - var_system_update_security is number
+    quiet: true
+    fail_msg: Exiting, var_system_update_security must be boolean
+
+# var_system_update_bugfix:
+- name: Verify apply bugfix update value
+  ansible.builtin.assert:
+    that:
+      - var_system_update_bugfix is defined
+      - var_system_update_bugfix is boolean
+      - var_system_update_bugfix is number
+    quiet: true
+    fail_msg: Exiting, var_system_update_bugfix must be boolean
+
+# var_system_update_update_cache
+- name: Verify update cache value
+  ansible.builtin.assert:
+    that:
+      - var_system_update_update_cache is defined
+      - var_system_update_update_cache is boolean
+      - var_system_update_update_cache is number
+    quiet: true
+    fail_msg: Exiting, var_system_update_update_cache must be boolean
+
+# var_system_update_prevent_reboot:
+- name: Verify prevent reboot value
+  ansible.builtin.assert:
+    that:
+      - var_system_update_prevent_reboot is defined
+      - var_system_update_prevent_reboot is boolean
+      - var_system_update_prevent_reboot is number
+    quiet: true
+    fail_msg: Exiting, var_system_update_prevent_reboot must be boolean
+
+# var_system_update_pre_reboot_delay
+- name: Verify pre reboot delay value
+  ansible.builtin.assert:
+    that:
+      - var_system_update_pre_reboot_delay is defined
+      - var_system_update_pre_reboot_delay is number
+      - var_system_update_pre_reboot_delay is integer
+      - var_system_update_pre_reboot_delay >= 0
+    quiet: true
+    fail_msg: Exiting, var_system_update_pre_reboot_delay must be integer >= 0
+
+# var_system_update_reboot_delay
+- name: Verify reboot delay value
+  ansible.builtin.assert:
+    that:
+      - var_system_update_reboot_delay is defined
+      - var_system_update_reboot_delay is number
+      - var_system_update_reboot_delay is integer
+      - var_system_update_reboot_delay >= 0
+    quiet: true
+    fail_msg: Exiting, var_system_update_reboot_delay must be integer >= 0

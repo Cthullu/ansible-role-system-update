@@ -1,0 +1,37 @@
+---
+- name: Import tasks to verify configuration
+  ansible.builtin.import_tasks:
+    file: 00-verify.yml
+
+- name: Gather system information regarding target platform
+  ansible.builtin.setup:
+    gather_subset:
+      - '!all'
+      - '!min'
+      - distribution
+      - distribution_major_version
+    gather_timeout: "{{ var_system_update_gather_timeout }}"
+
+- name: Include tasks to perform updates on RHEL systems
+  when:
+    - ansible_facts['distribution'] == 'RedHat'
+    - ansible_facts['distribution_major_version'] is version('8', '>=')
+  ansible.builtin.include_tasks:
+    file: 10-dnf.yml
+
+- name: Include tasks to perform updates on Fedora systems
+  when:
+    - ansible_facts['distribution'] == 'Fedora'
+    - ansible_facts['distribution_major_version'] is version('36', '>=')
+  ansible.builtin.include_tasks:
+    file: 10-dnf.yml
+
+- name: Include tasks to perform updates on Ubuntu systems
+  when:
+    - ansible_facts['distribution'] == 'Ubuntu'
+    - ansible_facts['distribution_major_version'] is version('20', '>=')
+  ansible.builtin.include_tasks:
+    file: 11-apt.yml
+
+- name: Ensure pending handlers are flushed
+  ansible.builtin.meta: flush_handlers
