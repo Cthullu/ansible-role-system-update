@@ -19,7 +19,10 @@ galaxy_info:
         - "36"
         - "37"
         - "38"
-
+    - name: Ubuntu
+      versions:
+        - focal
+        - jammy
 
   galaxy_tags: []
 
