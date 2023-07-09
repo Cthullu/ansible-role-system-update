@@ -2,7 +2,7 @@
 
 ![Ansible Lint](https://github.com/cthullu/ansible-role-system-update/actions/workflows/ansible-lint.yml/badge.svg)
 
-This role can be used to update packages at systems using the dnf package
+This role can be used to update packages at systems using the dnf or apt package
 manager.
 
 The role allows to specify if general updates, bugfixes or security updated
@@ -89,4 +89,4 @@ MIT
 
 | Date        | Version | Author      |
 |-------------|---------|-------------|
-| 2023-06-17  | 1.0.0   | Daniel Kuß  |
+| 2023-07-09  | 1.0.0   | Daniel Kuß  |
