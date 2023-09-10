@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Check if updates still pending
+      ansible.builtin.dnf:
+        name: '*'
+        state: latest
+        update_cache: true
+      check_mode: true

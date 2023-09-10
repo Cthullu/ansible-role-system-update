@@ -31,8 +31,9 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install yamllint ansible-lint "molecule-plugins[lint,podman]"
+          python3 -m pip install yamllint ansible-lint "molecule-plugins[lint,docker]"
 
       - name: Test with molecule
         run: |
-          molecule test --scenario-name ubuntu-podman
+          molecule test --scenario-name ubuntu
+          molecule test --scenario-name fedora
