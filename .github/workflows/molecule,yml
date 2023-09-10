@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install yamllint ansible-lint "molecule-plugins[lint,docker]"
+          python3 -m pip install "molecule-plugins[lint,docker]"
 
       - name: Test with molecule
         run: |
